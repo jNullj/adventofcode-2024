@@ -21,6 +21,12 @@
             "type": "debugpy",
             "request": "launch",
             "module": "q3.part1"
-        }
+        },
+        {
+            "name": "question 3 part 2",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "q3.part2"
+        },
     ]
 }
