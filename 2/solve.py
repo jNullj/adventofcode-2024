@@ -35,18 +35,19 @@ def is_report_safe(report: list[int]) -> bool:
         return False, i
     return True, -1
 
+def extract_reports(input_data: str) -> list[list[int]]:
+    # extract from text input
+    reports = []
+    for line in input_data.split('\n'):
+        if line == '':
+            continue
+        report = line.split(' ')
+        report = [int(val) for val in report]
+        reports.append(report)
+    return reports
 
 input_data = read_input('2/input.txt')
-
-# extract from text input
-reports = []
-for line in input_data.split('\n'):
-    if line == '':
-        continue
-    report = line.split(' ')
-    print(report)
-    report = [int(val) for val in report]
-    reports.append(report)
+reports = extract_reports(input_data)
 
 # how many reports are safe
 safe_reports = 0
