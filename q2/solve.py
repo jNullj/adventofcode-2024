@@ -46,7 +46,7 @@ def extract_reports(input_data: str) -> list[list[int]]:
         reports.append(report)
     return reports
 
-input_data = read_input('2/input.txt')
+input_data = read_input('q2/input.txt')
 reports = extract_reports(input_data)
 
 # how many reports are safe
