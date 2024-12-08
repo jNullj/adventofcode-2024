@@ -34,5 +34,11 @@
             "request": "launch",
             "module": "q4.part1"
         },
+        {
+            "name": "question 4 part 2",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "q4.part2"
+        },
     ]
 }
