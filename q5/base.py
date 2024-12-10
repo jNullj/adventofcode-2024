@@ -29,6 +29,10 @@ class RuleSet():
         self.rules = []
         for rule in rules_str_arr:
             self.rules.append(Rule(rule))
+        self.orderRules()
+    
+    def orderRules(self):
+        self.rules.sort(key=lambda x: (x.prior, x.post))
     
     def testUpdate(self, update: ManualUpdate):
         for rule in self.rules:
@@ -38,4 +42,16 @@ class RuleSet():
             except PageNotFoundError:
                 pass
         return True
+    
+    def fixUpdate(self, update: ManualUpdate):
+        for rule in self.rules:
+            try:
+                priorIdx = update.pageIndex(rule.prior)
+                postIdx = update.pageIndex(rule.post)
+                if priorIdx > postIdx:
+                    update.pages[priorIdx] = rule.post
+                    update.pages[postIdx] = rule.prior
+            except PageNotFoundError:
+                pass
+        return update
 
